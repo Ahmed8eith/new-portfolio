@@ -10,11 +10,63 @@ import linkedin from './assets/icons8-linkedin-50.png';
 
 
 function App() {
-  
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  const navItems = ['About', 'Experience', 'Projects', 'Contact'];
+
+  const handleNavClick = (section) => {
+    closeMenu();
+    const element = document.getElementById(section.toLowerCase());
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
-      
+     <div className='navbar'>
+        <h1 className='name'>Ahmed Mohamed</h1>
+        
+        {/* Desktop Nav */}
+        <div className='nav-btns'>
+          {navItems.map((item) => (
+            <button key={item} className='nav-btn' onClick={() => handleNavClick(item)}>
+              {item}
+            </button>
+          ))}
+        </div>
+
+        {/* Hamburger Button */}
+        <button className='hamburger-btn' onClick={toggleMenu}>
+          <GiHamburgerMenu size={24} />
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className='menu-overlay' onClick={closeMenu} />
+      )}
+
+      {/* Mobile Menu Panel */}
+      <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+        <button className='close-btn' onClick={closeMenu}>
+          <IoCloseOutline size={28} />
+        </button>
+        <div className='mobile-nav-btns'>
+          {navItems.map((item) => (
+            <button
+              key={item}
+              className='mobile-nav-btn'
+              onClick={() => handleNavClick(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
       <div className='landing'>
         <img src={myImage} alt="myImg"/>
         <div className='landing-text'>
@@ -92,7 +144,7 @@ function App() {
       </div>
 
 
-      <h1 className='project-header' id='project-header'>My Latest Projects</h1>
+      <h1 className='project-header' id='projects'>My Latest Projects</h1>
       <div className='projects'>
         {projects.map((project)=>(
           <div className='project-box'>
@@ -106,7 +158,7 @@ function App() {
         ))}
       </div>
 
-      <div className='contacts'>
+      <div className='contacts' id='contact'>
         <div className='contacts-header'>
           <h5>Get In Touch</h5>
           <h1>Contact Me</h1>
