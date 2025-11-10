@@ -1,0 +1,672 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+  color: white;
+  background-color: black;
+  font-family: 'Inter', sans-serif;
+  padding: 10px 20px 10px 20px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
+  outline: none;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-size: 40px;
+  background: transparent;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background: transparent;
+  z-index: 100;
+}
+
+.nav-btns {
+  display: flex;
+  gap: 30px;
+  background: transparent;
+}
+
+.nav-btn {
+  position: relative;
+  cursor: pointer;
+  font-size: 26px;
+  border: none;
+  background: none;
+  transition: color 0.3s ease;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 10%,
+    white 50%,
+    transparent 90%
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-btn:hover::after {
+  transform: scaleX(1);
+}
+
+.hamburger {
+  cursor: pointer;
+  background: transparent;
+  z-index: 101;
+  position: relative;
+}
+
+.close-btn {
+  cursor: pointer;
+  background: transparent;
+  z-index: 101;
+  position: relative;
+}
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  background: transparent;
+  z-index: 101;
+}
+
+.hamburger-menu svg {
+  cursor: pointer;
+  background: none;
+  padding: 5px;
+  z-index: 102;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger-menu svg:hover {
+  opacity: 0.7;
+}
+
+.close-btn {
+  animation: rotateIn 0.3s ease forwards;
+}
+
+.hamburger {
+  animation: rotateOut 0.3s ease forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotateOut {
+  from {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+/* Slide-in panel styles */
+.hamburger-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 200px;
+  background: rgba(0, 0, 0, 0.95);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 99;
+  padding-top: 80px;
+  overflow-y: auto;
+}
+
+.hamburger-panel.open {
+  transform: translateX(0);
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hamburger-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+  padding: 20px;
+}
+
+.hamburger-btn {
+  font-size: 20px;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+}
+
+
+
+@media screen and (max-width: 1400px) {
+  * {
+    padding: 7px 15px 7px 15px;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .nav-btns {
+    gap: 20px;
+  }
+
+  .nav-btn {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:600px){
+    .name{
+        font-size: 20px;
+    }
+}
+
+.landing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 100px 0 100px 0;
+}
+
+.landing img{
+   border-radius: 10%;
+   width: 600px;
+}
+
+.landing-text{
+    text-align: center;
+    line-height: 5px;
+}
+
+.landing-text h4{
+    font-size: 30px;
+}
+
+.landing-text h2{
+    font-size: 50px;
+}
+
+.landing-text h3{
+    font-size: 40px;
+}
+
+.landing-btns{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.landing-btns button{
+    border: 1px solid white;
+    padding: 20px 30px 20px 30px;
+    border-radius: 50px;
+    font-size: 15px;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.landing-btns button:hover{
+    background-color: white;
+    color: black;
+}
+
+@media screen and (max-width: 1400px){
+    .landing-text h4{
+    font-size: 20px;
+}
+
+.landing-text h2{
+    font-size: 40px;
+}
+
+.landing-text h3{
+    font-size: 30px;
+}
+
+.landing img{
+   width: 400px;
+}
+}
+
+@media screen and (max-width: 1000px){
+    .landing{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 30px 0 30px 0;
+    }
+    .landing img{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:600px){
+
+    .landing img{
+        width: 300px;
+    }
+
+    .landing-text h4{
+        font-size: 15px;
+    }
+
+    .landing-text h2{
+        font-size: 30px;
+    }
+
+    .landing-text h3{
+        font-size: 20px;
+    }
+
+    .landing-btns button{
+        padding: 20px 25px 20px 25px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:440px) {
+     .landing img{
+        width: 200px;
+    }
+
+     .landing-text h4{
+        font-size: 10px;
+    }
+
+    .landing-text h2{
+        font-size: 20px;
+    }
+
+    .landing-text h3{
+        font-size: 14px;
+    }
+
+    .landing-btns button{
+        padding: 15px 20px 15px 20px;
+        font-size: 10px;
+    }
+
+}
+
+
+.about{
+    display: flex;
+    padding: 100px 40px 100px 40px;
+    justify-content: center;
+    gap: 150px;
+    word-wrap: break-word;
+}
+
+.about-text h1{
+    font-size: 50px;
+}
+
+.about-text h2{
+    max-width: 500px;
+    font-size: 30px;
+}
+
+.about-boxes{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.box{
+    line-height: 0;
+    border: 1px solid white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width:1326px) {
+
+    .about{
+        gap: 20px;
+        padding: 50px 40px 50px 40px;
+
+    }
+
+    .about-text h1{
+        font-size: 40px;
+    }
+
+    .about-text h2{
+        font-size: 25px;
+    }
+
+    .about-boxes{
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width:630px){
+
+    .about{
+        padding: 100px 0 100px 0;
+
+    }
+
+    .about-text h1{
+        font-size: 30px;
+    }
+
+    .about-text h2{
+        font-size: 20px;
+    }
+
+    .box{
+        width: 100%;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .box h3{
+        font-size: 15px;
+    }
+
+    .box h4 {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .about{
+        padding: 50px 0 50px 0;
+
+    }
+
+    .about-text h1{
+        font-size: 20px;
+    }
+
+    .about-text h2{
+        font-size: 12px;
+    }
+
+     .box h3{
+        font-size: 12px;
+    }
+
+    .box h4 {
+        font-size: 10px;
+    }
+}
+
+.experience{
+    line-height: 0;
+}
+
+.experience>h5{
+    color: gray;
+}
+
+.experience>h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.experience>h5,.experience>h1{
+    text-align: center;
+}
+
+.experience-box{
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    justify-items: center;
+    padding: 50px 100px 50px 100px;
+    border: 1px solid white;
+    border-radius: 30px;
+    max-width: 700px;
+    margin: 50px auto;
+}
+
+.skill h3{
+    font-size: 20px;
+}
+
+.skill h5{
+    color: gray;
+    font-size: 20px;
+}
+
+@media screen and (max-width:1000px){
+    .experience-box{
+        grid-template-columns: repeat(2,1fr);
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .experience-box{
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .experience>h1{
+        font-size: 30px;
+    }
+}
+
+
+.project-header{
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: -20px;
+}
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px;
+    width: 1500px;
+    margin: 0 auto;
+    max-width: 1200px; /* Optional: limits max width */
+}
+
+.project-box {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.project-box img{
+    width: 60px;
+}
+
+.visit-btn{
+    background: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px 70px 10px 70px;
+    font-size: 15px;
+    transition: all ease-in-out 0.3s;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.visit-btn:hover{
+    color: black;
+    background-color: white;
+}
+
+@media screen and (max-width:1400px) {
+    .projects{
+        width: 800px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .projects{
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 700px){
+
+    .projects{
+        width: 300px;
+    }
+
+    .project-box h2{
+        font-size: 20px;
+    }
+
+    .project-box h4{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 400px){
+
+    .projects{
+        width: 100%;
+    }
+
+
+    .project-box h2{
+        font-size: 15px;
+    }
+
+    .project-box h4{
+        font-size: 8px;
+    }
+
+    .project-header{
+        font-size: 25px;
+    }
+
+    .project-box{
+        padding: 10px;
+    }
+
+    .projects{
+        width: 100%;
+    }
+}
+
+
+.contacts{
+    text-align: center;
+    margin: 100px;
+}
+
+.contacts h1, .contacts h5{
+    margin: 0;
+}
+
+.contact-box{
+    border: 2px solid white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    margin: 50px auto;
+    gap: 20px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.linked-btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: -20px;
+}
+
+.contacts img{
+    width: 30px;
+}
+
+.contact{
+    display: flex;
+    align-items: center;
+}
+
+.contact h3{
+    font-size: 13px;
+}
+
+@media screen and (max-width:900px){
+    .contact-box{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media screen and (max-width:700px){
+    .contact-box{
+        width: 100%;
+    }
+
+    .contact h3{
+        font-size: 8px;
+    }
+
+    .contacts img{
+        width: 20px;
+    }
+
+    .contacts h1{
+        font-size: 20px;
+    }
+
+    
+}
