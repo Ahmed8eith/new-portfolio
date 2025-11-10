@@ -4,7 +4,6 @@
   color: white;
   background-color: black;
   font-family: 'Inter', sans-serif;
-  padding: 10px 20px 10px 20px;
   -webkit-tap-highlight-color: transparent;
   -webkit-focus-ring-color: transparent;
   outline: none;
@@ -508,173 +507,225 @@
 }
 
 
-.project-header{
+.project-header {
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: -20px;
+    margin-top: 200px;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    padding: 0 1rem;
 }
+
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 50px;
-    width: 1500px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
     margin: 0 auto;
-    max-width: 1200px; /* Optional: limits max width */
+    max-width: 1200px;
+    padding: 0 1rem;
+    width: 100%;
 }
 
 .project-box {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 1.5rem;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
+    text-align: center;
+    gap: 1rem;
+    min-height: 100%;
 }
 
-.project-box img{
-    width: 60px;
+.project-box img {
+    width: clamp(40px, 10vw, 80px);
+    height: auto;
 }
 
-.visit-btn{
+.project-box h2 {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin: 0.5rem 0;
+}
+
+.project-box h4 {
+    font-size: clamp(0.75rem, 3vw, 1rem);
+    margin: 0.5rem 0;
+    color: #666;
+    flex-grow: 1;
+}
+
+.visit-btn {
     background: transparent;
     border: 1px solid white;
     cursor: pointer;
     border-radius: 10px;
-    padding: 10px 70px 10px 70px;
-    font-size: 15px;
+    padding: 0.75rem 1.5rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
     transition: all ease-in-out 0.3s;
-    width: 200px;
+    width: 100%;
+    max-width: 300px;
+    color: inherit;
+    align-self: flex-start;
+}
+
+.visit-btn:hover {
+    color: black;
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.visit-btn:active {
+    transform: scale(0.98);
+}
+
+@media screen and (max-width: 640px) {
+    .projects {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-box {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project-header {
+        margin-top: 1.5rem;
+    }
+    
+    .projects {
+        gap: 1rem;
+        padding: 0 0.75rem;
+    }
+    
+    .project-box {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .visit-btn {
+        padding: 0.6rem 1rem;
+    }
+}
+
+.contacts {
+    padding: clamp(2rem, 8vw, 6rem);
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.visit-btn:hover{
-    color: black;
-    background-color: white;
-}
-
-@media screen and (max-width:1400px) {
-    .projects{
-        width: 800px;
-    }
-}
-
-@media screen and (max-width:1000px) {
-    .projects{
-        width: 550px;
-    }
-}
-
-@media screen and (max-width: 700px){
-
-    .projects{
-        width: 300px;
-    }
-
-    .project-box h2{
-        font-size: 20px;
-    }
-
-    .project-box h4{
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 400px){
-
-    .projects{
-        width: 100%;
-    }
-
-
-    .project-box h2{
-        font-size: 15px;
-    }
-
-    .project-box h4{
-        font-size: 8px;
-    }
-
-    .project-header{
-        font-size: 25px;
-    }
-
-    .project-box{
-        padding: 10px;
-    }
-
-    .projects{
-        width: 100%;
-    }
-}
-
-
-.contacts{
+.contacts-header {
     text-align: center;
-    margin: 100px;
+    margin-bottom: 3rem;
 }
 
-.contacts h1, .contacts h5{
+.contacts-header h5 {
+    font-size: clamp(0.875rem, 2vw, 1.25rem);
+    color: rgb(175, 173, 173);
     margin: 0;
 }
 
-.contact-box{
-    border: 2px solid white;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    align-items: center;
-    margin: 50px auto;
-    gap: 20px;
-    border-radius: 30px;
-    width: 80%;
-    max-width: 1200px;
-    padding: 20px;
-    justify-items: center;
+.contacts-header h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin: 0.5rem 0 0 0;
 }
 
-.linked-btn{
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    margin-left: -20px;
-}
-
-.contacts img{
-    width: 30px;
-}
-
-.contact{
+.contacts-wrapper {
     display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 8vw, 4rem);
     align-items: center;
 }
 
-.contact h3{
-    font-size: 13px;
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
 }
 
-@media screen and (max-width:900px){
-    .contact-box{
-        grid-template-columns: repeat(1,1fr);
-    }
+.contact img {
+    width: 40px;
+    height: auto;
 }
 
-@media screen and (max-width:700px){
-    .contact-box{
-        width: 100%;
-    }
+.contact h4 {
+    margin: 0;
+    font-size: clamp(0.875rem, 3vw, 1.125rem);
+}
 
-    .contact h3{
-        font-size: 8px;
-    }
+.contact a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: -0.5rem;
+}
 
-    .contacts img{
-        width: 20px;
-    }
+.linkedin-btn {
+    border: none;
+    background: transparent;
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    transition: all ease-in-out 0.3s;
+    margin: 0;
+}
 
-    .contacts h1{
-        font-size: 20px;
-    }
+.linkedin-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
+@media screen and (max-width: 420px) {
+    .contacts {
+        padding: clamp(1rem, 5vw, 2rem);
+    }
     
+    .contacts-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contacts-header h5 {
+        font-size: 0.75rem;
+    }
+    
+    .contacts-header h1 {
+        font-size: 1.25rem;
+        margin-top: 0.25rem;
+    }
+    
+    .contacts-wrapper {
+        gap: 1.5rem;
+    }
+    
+    .contact {
+        gap: 0.75rem;
+    }
+    
+    .contact img {
+        width: 30px;
+    }
+    
+    .contact h4 {
+        font-size: 0.75rem;
+    }
+    
+    .linkedin-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .contacts-wrapper {
+        flex-direction: row;
+        justify-content: center;
+        gap: clamp(2rem, 5vw, 3rem);
+    }
+    
+    .contact {
+        gap: 0.75rem;
+    }
 }
