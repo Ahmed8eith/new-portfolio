@@ -100,7 +100,6 @@ function App() {
           </div>
         </>
       )}
-
       <div className='landing'>
         <img src={myImage} alt="myImg"/>
         <div className='landing-text'>
@@ -108,8 +107,9 @@ function App() {
           <h2>Ahmed Mohamed</h2>
           <h3>Frontend Developer</h3>
           <div className='landing-btns'>
-            <button>Download CV</button>
-            <button>Contact Info</button>
+            <a href="https://www.canva.com/design/DAGckqyCA6o/xmQa6cMxBqsMl9Cwt_63gA/view?utm_content=DAGckqyCA6o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb75c29a776">
+            <button>My CV</button></a>
+            <button onClick={() => handleNavClick('Contact')}>Contact Info</button>
           </div>
         </div>
       </div>

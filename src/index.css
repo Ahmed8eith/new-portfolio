@@ -255,9 +255,17 @@
     cursor: pointer;
 }
 
+
 .landing-btns button:hover{
     background-color: white;
     color: black;
+}
+
+.landing-btns a {
+  display: flex;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
 }
 
 @media screen and (max-width: 1400px){
