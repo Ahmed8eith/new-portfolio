@@ -5,30 +5,75 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const landingAnimation = () => {
-  // Set initial state for image
-  gsap.set('.landing img', {
-    opacity: 0,
-    y: 20
-  });
+    
+    gsap.set('.nav-btn', {
+        opacity: 0,
+        y: 30,
+    });
 
-  // Animate image
-  gsap.to('.landing img', {
-    duration: 2,
-    opacity: 1,
-    y: 0,
-    ease: 'power2.out'
-  });
+    gsap.set('.hamburger-btn', {
+        opacity: 0,
+        y: 30,
+    });
 
-  // Set text and buttons invisible initially
-  gsap.set('.landing-text', {
-    opacity: 0
-  });
-  
-  gsap.set('.landing-btns button', {
-    opacity: 0
-  });
+    gsap.set('.name', {
+        opacity: 0,
+        clipPath: 'inset(0 0 100% 0)',
+    });
 
-  // Show text after image animation, then typewriter effect
+    gsap.to('.nav-btn', {
+        duration: 1,
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        ease: 'power2.out',
+        delay: 0.5,
+    });
+
+    gsap.to('.hamburger-btn', {
+        duration: 1,
+        y: 0,
+        opacity: 1,
+        ease: 'power2.out',
+        delay: 0.8,
+    });
+
+    gsap.fromTo('.name',
+    { 
+        opacity: 0,
+        y: -40,
+        clipPath: 'inset(0 0 100% 0)'
+    },
+    { 
+        duration: 2,
+        opacity: 1,
+        y: 0,
+        clipPath: 'inset(0 0 0% 0)',
+        ease: "elastic.out(1,0.4)",
+        delay: 1.5
+    }
+    );
+
+    gsap.set('.landing img', {
+        opacity: 0,
+        y: 20
+    });
+
+    gsap.to('.landing img', {
+        duration: 2,
+        opacity: 1,
+        y: 0,
+        ease: 'power2.out'
+    });
+
+    gsap.set('.landing-text', {
+        opacity: 0
+    });
+    
+    gsap.set('.landing-btns button', {
+        opacity: 0
+    });
+
   gsap.to('.landing-text', {
     duration: 1,
     opacity: 1,
@@ -55,25 +100,22 @@ export const landingAnimation = () => {
     }
   });
 
-  // Fade in buttons with delay
   gsap.to('.landing-btns button', {
     duration: 2,
     y:10,
     opacity: 1,
     stagger: 0.5,
-    delay: 4.5,  // Adjust this timing
+    delay: 4.5, 
     ease: "power1.out"
   });
 };
 
 export const aboutAnimation = () => {
-  // Set initial state for text
   gsap.set('.about-text h1, .about-text h2', {
     opacity: 0,
     x: -100
   });
 
-  // Set initial state for boxes
   gsap.set('.about-boxes .box', {
     opacity: 0,
     y: 50

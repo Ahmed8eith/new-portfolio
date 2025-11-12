@@ -44,7 +44,6 @@ function App() {
      <div className='navbar'>
         <h1 className='name'>Ahmed Mohamed</h1>
         
-        {/* Desktop Nav */}
         <div className='nav-btns'>
           {navItems.map((item) => (
             <button key={item} className='nav-btn' onClick={() => handleNavClick(item)}>
@@ -53,18 +52,15 @@ function App() {
           ))}
         </div>
 
-        {/* Hamburger Button */}
         <button className='hamburger-btn' onClick={toggleMenu}>
           <GiHamburgerMenu size={24} />
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className='menu-overlay' onClick={closeMenu} />
       )}
 
-      {/* Mobile Menu Panel */}
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         <button className='close-btn' onClick={closeMenu}>
           <IoCloseOutline size={28} />
