@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseOutline } from "react-icons/io5";
 import myImage from './assets/ana5.JPG';
@@ -7,9 +7,17 @@ import {projects} from './projects.js'
 import phone from './assets/icons8-phone-50.png';
 import gmail from './assets/icons8-gmail-50.png';
 import linkedin from './assets/icons8-linkedin-50.png';
-
+import { aboutAnimation, contactsAnimation, experienceAnimation, landingAnimation, projectsAnimation } from './animations.js';
 
 function App() {
+  useEffect(()=>{
+    landingAnimation()
+    aboutAnimation()
+    experienceAnimation()
+    projectsAnimation()
+    contactsAnimation()
+  },[])
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -70,9 +78,9 @@ function App() {
       <div className='landing'>
         <img src={myImage} alt="myImg"/>
         <div className='landing-text'>
-          <h4>Hey I'm</h4>
-          <h2>Ahmed Mohamed</h2>
-          <h3>Frontend Developer</h3>
+          <h4></h4>
+          <h2></h2>
+          <h3></h3>
           <div className='landing-btns'>
             <a href="https://www.canva.com/design/DAGckqyCA6o/xmQa6cMxBqsMl9Cwt_63gA/view?utm_content=DAGckqyCA6o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb75c29a776">
             <button>My CV</button></a>

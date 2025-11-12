@@ -166,6 +166,7 @@
 .landing-text{
     text-align: center;
     line-height: 5px;
+    min-width: 420px;
 }
 
 .landing-text h4{
@@ -180,6 +181,7 @@
     font-size: 40px;
 }
 
+
 .landing-btns{
     display: flex;
     justify-content: center;
@@ -191,7 +193,7 @@
     padding: 20px 30px 20px 30px;
     border-radius: 50px;
     font-size: 15px;
-    transition: all ease-in-out 0.3s;
+    transition: background-color ease-in-out 0.3s, color ease-in-out 0.3s;
     cursor: pointer;
 }
 
@@ -211,6 +213,10 @@
 @media screen and (max-width: 1400px){
     .landing-text h4{
     font-size: 20px;
+}
+
+.landing-text{
+    min-width: 330px;
 }
 
 .landing-text h2{
@@ -233,6 +239,11 @@
         gap: 10px;
         padding: 30px 0 30px 0;
     }
+
+    .landing-text{
+        min-height: 200px;
+    }
+
     .landing img{
         width: 400px;
     }
@@ -242,6 +253,10 @@
 
     .landing img{
         width: 300px;
+    }
+
+    .landing-text{
+        min-height: 165px;
     }
 
     .landing-text h4{
@@ -341,7 +356,9 @@
 
 @media screen and (max-width:630px){
 
-    
+    .about{
+        padding: 20px 40px 20px 40px;
+    }
 
     .about-text h1{
         font-size: 30px;
@@ -412,16 +429,26 @@
     text-align: center;
 }
 
+.experience h5,
+.experience h1,
+.experience h3 {
+  will-change: opacity, transform;
+}
+
 .experience-box{
     display: grid;
     grid-template-columns:repeat(3,1fr);
-    justify-items: center;
     padding: 50px 100px 50px 100px;
     border: 1px solid white;
     border-radius: 30px;
     max-width: 700px;
     margin: 50px auto;
     width: 80%;
+}
+
+.skill{
+    width: 80%;
+    margin: 0 auto;
 }
 
 .skill h3{
@@ -443,18 +470,22 @@
 @media screen and (max-width:600px){
     .experience-box{
         grid-template-columns: 1fr;
-        padding: 0;
+        width:70% ;
     }
 
     .experience>h1{
         font-size: 30px;
+    }
+
+    .skill{
+        max-width: 200px;
     }
 }
 
 
 .project-header {
     text-align: center;
-    margin-top: 200px;
+    margin-top: 100px;
     font-size: clamp(1.75rem, 5vw, 2.5rem);
     padding: 0 1rem;
 }
@@ -569,7 +600,7 @@
 .contacts {
     padding: clamp(2rem, 8vw, 6rem);
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 100px auto;
 }
 
 .contacts-header {
