@@ -10,15 +10,21 @@ import linkedin from './assets/icons8-linkedin-50.png';
 import { aboutAnimation, contactsAnimation, experienceAnimation, landingAnimation, projectsAnimation } from './animations.js';
 
 function App() {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLandingLoaded, setIsLandingLoaded] = useState(false);
+
   useEffect(()=>{
     landingAnimation()
+  },[])
+
+  useEffect(()=>{
     aboutAnimation()
     experienceAnimation()
     projectsAnimation()
     contactsAnimation()
-  },[])
-
-  const [isOpen, setIsOpen] = useState(false);
+  },[isLandingLoaded])
+  
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -76,7 +82,7 @@ function App() {
         </div>
       </div>
       <div className='landing'>
-        <img src={myImage} alt="myImg"/>
+        <img src={myImage} alt="myImg" onLoad={()=>setIsLandingLoaded(true)}/>
         <div className='landing-text'>
           <h4></h4>
           <h2></h2>
@@ -88,8 +94,9 @@ function App() {
           </div>
         </div>
       </div>
-
-      <div className='about' id='about'>
+      {isLandingLoaded && (
+        <>
+          <div className='about' id='about'>
          <div className='about-text'>
             <h1>About Me</h1>
             <h2>
@@ -188,7 +195,9 @@ function App() {
           </div>
         </div>
       </div>
-
+        </>
+      )}
+      
     </>
   );
 }

@@ -67,6 +67,18 @@ export const landingAnimation = () => {
 };
 
 export const aboutAnimation = () => {
+  // Set initial state for text
+  gsap.set('.about-text h1, .about-text h2', {
+    opacity: 0,
+    x: -100
+  });
+
+  // Set initial state for boxes
+  gsap.set('.about-boxes .box', {
+    opacity: 0,
+    y: 50
+  });
+
   gsap.to('.about-text h1, .about-text h2', {
     scrollTrigger: {
       trigger: '.about-text',
@@ -77,8 +89,7 @@ export const aboutAnimation = () => {
     opacity: 1,
     x: 0,
     stagger: 0.3,
-    ease: 'power2.out',
-    immediateRender: false  // Don't apply styles immediately
+    ease: 'power2.out'
   });
 
   gsap.to('.about-boxes .box', {
@@ -87,13 +98,12 @@ export const aboutAnimation = () => {
       start: 'top 80%',
       end: 'top 20%'
     },
-    delay: 1,
+    delay:1,
     duration: 2,
     opacity: 1,
     y: 0,
     stagger: 0.5,
-    ease: 'power2.out',
-    immediateRender: false
+    ease: 'power2.out'
   });
 };
 
