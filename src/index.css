@@ -319,6 +319,23 @@
     font-size: 30px;
 }
 
+.about-text h1,
+.about-text h2 {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.about-boxes .box {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.about-text h1,
+.about-text h2,
+.about-boxes .box {
+  will-change: opacity, transform;
+}
+
 .about-boxes{
     display: flex;
     flex-direction: column;
